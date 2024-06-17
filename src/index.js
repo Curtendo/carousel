@@ -9,7 +9,7 @@ class Carousel {
     this.navDots = document.querySelectorAll('.dot');
 
     this.autoSlide = setInterval(() => {
-      this.moveSlideRight()
+      this.moveSlideRight();
     }, 5000);
     this.isAutoSlideActive = true;
 
@@ -62,7 +62,7 @@ class Carousel {
   }
 
   moveSlideRight() {
-  const currentSlideNum = parseInt(
+    const currentSlideNum = parseInt(
       document.querySelector('.dot-filled').getAttribute('data-slide')
     );
     if (currentSlideNum !== 4) {
@@ -78,8 +78,6 @@ class Carousel {
     this.moveSlidePosition(slideNum);
     this.clearAutoSlide();
   }
-
-  
 
   moveSlidePosition(slideNum) {
     const slidePosition = 700 * slideNum;
