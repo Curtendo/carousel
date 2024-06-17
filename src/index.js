@@ -8,6 +8,11 @@ class Carousel {
 
     this.navDots = document.querySelectorAll('.dot');
 
+    this.autoSlide = setInterval(() => {
+      this.moveSlideRight()
+    }, 5000);
+    this.isAutoSlideActive = true;
+
     this.initEvents();
   }
 
@@ -33,7 +38,7 @@ class Carousel {
       if (e.key === 'ArrowRight') {
         this.handleRightArrow();
       }
-    })
+    });
 
     this.highlightDot(0);
     this.moveSlidePosition(0);
@@ -48,10 +53,16 @@ class Carousel {
       this.highlightDot(previousSlideNum);
       this.moveSlidePosition(previousSlideNum);
     }
+    this.clearAutoSlide();
   }
 
   handleRightArrow() {
-    const currentSlideNum = parseInt(
+    this.moveSlideRight();
+    this.clearAutoSlide();
+  }
+
+  moveSlideRight() {
+  const currentSlideNum = parseInt(
       document.querySelector('.dot-filled').getAttribute('data-slide')
     );
     if (currentSlideNum !== 4) {
@@ -65,7 +76,10 @@ class Carousel {
     const slideNum = parseInt(e.target.getAttribute('data-slide'));
     this.highlightDot(slideNum);
     this.moveSlidePosition(slideNum);
+    this.clearAutoSlide();
   }
+
+  
 
   moveSlidePosition(slideNum) {
     const slidePosition = 700 * slideNum;
@@ -80,6 +94,12 @@ class Carousel {
 
     // Highlight current dot
     this.navDots[slideNum].classList.add('dot-filled');
+  }
+
+  clearAutoSlide() {
+    if (this.isAutoSlideActive) {
+      clearInterval(this.autoSlide);
+    }
   }
 }
 
