@@ -26,7 +26,17 @@ class Carousel {
       });
     });
 
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') {
+        this.handleLeftArrow();
+      }
+      if (e.key === 'ArrowRight') {
+        this.handleRightArrow();
+      }
+    })
+
     this.highlightDot(0);
+    this.moveSlidePosition(0);
   }
 
   handleLeftArrow() {
@@ -52,14 +62,13 @@ class Carousel {
   }
 
   handleDotClick(e) {
-    const slideNum = e.target.getAttribute('data-slide');
+    const slideNum = parseInt(e.target.getAttribute('data-slide'));
     this.highlightDot(slideNum);
     this.moveSlidePosition(slideNum);
   }
 
   moveSlidePosition(slideNum) {
     const slidePosition = 700 * slideNum;
-    console.log(slidePosition);
     this.slideContainer.style.right = `${slidePosition}px`;
   }
 
