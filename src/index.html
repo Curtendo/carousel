@@ -3,9 +3,61 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Carousel</title>
   </head>
   <body>
-    Hello
+    <div class="carousel-container">
+      <button type="button" class="arrow-button" id="arrow-left">←</button>
+      <div class="slide-container">
+        <div class="slide">
+          <div class="slide-img">
+            <img src="<%= require('./soccer.jpeg') %>" alt="Soccer" width="600px" />
+          </div>
+          <div class="caption">
+            <p>This is an image of soccer.</p>
+          </div>
+        </div>
+        <div class="slide">
+          <div class="slide-img">
+            <img src="<%= require('./basketball.jpg') %>" alt="Basketball" width="600px" />
+          </div>
+          <div class="caption">
+            <p>This is an image of basketball.</p>
+          </div>
+        </div>
+        <div class="slide">
+          <div class="slide-img">
+            <img src="<%= require('./baseball.jpg') %>" alt="Baseball" width="600px" />
+          </div>
+          <div class="caption">
+            <p>This is an image of baseball.</p>
+          </div>
+        </div>
+        <div class="slide">
+          <div class="slide-img">
+            <img src="<%= require('./tennis.jpg') %>" alt="Tennis" width="600px" />
+          </div>
+          <div class="caption">
+            <p>This is an image of tennis.</p>
+          </div>
+        </div>
+        <div class="slide">
+          <div class="slide-img">
+            <img src="<%= require('./football.jpg') %>" alt="Football" width="600px" />
+          </div>
+          <div class="caption">
+            <p>This is an image of football.</p>
+          </div>
+        </div>
+      </div>
+      <button type="button" class="arrow-button" id="arrow-right">→</button>
+      <div class="nav-dot-container">
+        <button type="button" class="dot"></button>
+        <button type="button" class="dot"></button>
+        <button type="button" class="dot"></button>
+        <button type="button" class="dot"></button>
+        <button type="button" class="dot"></button>
+      </div>
+    </div>
   </body>
 </html>
